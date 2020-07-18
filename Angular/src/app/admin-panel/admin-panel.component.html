@@ -7,7 +7,7 @@
           (click)="sortbycolumn(column_name)"
           *ngFor="let column_name of columnlist"
         >
-          {{ column_name.value }}
+          <button>{{ column_name.value }}</button>
         </th>
       </tr>
     </thead>

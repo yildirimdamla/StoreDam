@@ -61,25 +61,19 @@ export class tableoperations {
       }
       case 4: {
         return rows.sort(function (a, b) {
-          var nameA = a.age.toUpperCase();
-          var nameB = b.age.toUpperCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-          return 0;
+          Number(a.age);
+          Number(b.age);
+          return a.age - b.age;
         });
       }
       case 5: {
-        rows.sort(function (a, b) {
-          var nameA = a.start_date.toUpperCase();
-          var nameB = b.start_date.toUpperCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
+        return rows.sort(function (a, b) {
+          const startdateA = new Date(a.start_date);
+          const startdateB = new Date(b.start_date);
+          if (startdateA < startdateB) {
             return -1;
           }
-          if (nameA > nameB) {
+          if (startdateA > startdateB) {
             return 1;
           }
           return 0;
