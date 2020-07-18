@@ -1,0 +1,49 @@
+<!-- ======= Works Section ======= -->
+<section class="section site-portfolio">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+        <h2>Hey, I'm Damla Yıldırım</h2>
+        <p class="mb-0">
+          A person who is just bored &amp; wants to sell what they produce.
+        </p>
+      </div>
+      <div
+        class="col-md-12 col-lg-6 text-left text-lg-right"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div id="filters" class="filters">
+          <a href="#" data-filter="*" class="active">All</a>
+          <a href="#" data-filter=".t-shirt">Cloths</a>
+          <a href="#" data-filter=".soap">Soaps </a>
+          <a href="#" data-filter=".bag">Bag</a>
+          <!-- <a href="#" data-filter=".photography">Toys</a> -->
+        </div>
+      </div>
+    </div>
+    <div
+      id="portfolio-grid"
+      class="row no-gutter"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <div *ngFor="let product of data">
+        <div
+          class="item {{ product.category }} col-sm-6 col-md-4 col-lg-4 mb-4"
+        >
+          <a href="work-single.html" class="item-wrap fancybox">
+            <div class="work-info">
+              <h3>{{ product.title }}</h3>
+              <span>{{ product.description }}</span>
+              <hr />
+              <span>{{ product.price }} t </span>
+            </div>
+            <img class="img-fluid" src="{{ product.pictures[0] }}" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End  Works Section -->

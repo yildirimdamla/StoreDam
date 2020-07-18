@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th
+          scope="col"
+          (click)="sortbycolumn(column_name)"
+          *ngFor="let column_name of columnlist"
+        >
+          {{ column_name.value }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td scope="row">{{ item.name }}</td>
+        <td>{{ item.position }}</td>
+        <td>{{ item.office }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.start_date }}</td>
+        <td>{{ item.salary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
