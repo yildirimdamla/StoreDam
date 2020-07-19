@@ -10,17 +10,17 @@ export class table_schema {
 
 export const columnlist = [
   // { columId:0, key: '_id', value: 'Id' },
-  { columId: 1, key: 'name', value: 'Name & Surname' },
-  { columId: 2, key: 'position', value: 'Position' },
-  { columId: 3, key: 'office', value: 'Office' },
-  { columId: 4, key: 'age', value: 'Age' },
-  { columId: 5, key: 'start_date', value: 'Start Date' },
-  { columId: 6, key: 'salary', value: 'Salary' },
+  { key: 'name', value: 'Name & Surname' },
+  { key: 'position', value: 'Position' },
+  { key: 'office', value: 'Office' },
+  { key: 'age', value: 'Age' },
+  { key: 'start_date', value: 'Start Date' },
+  { key: 'salary', value: 'Salary' },
 ];
 export class tableoperations {
   static sortbyString(item: any, rows) {
-    switch (item.columId) {
-      case 1: {
+    switch (item.key) {
+      case 'name': {
         return rows.sort(function (a, b) {
           var nameA = a.name.toUpperCase();
           var nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -33,7 +33,7 @@ export class tableoperations {
           return 0;
         });
       }
-      case 2: {
+      case 'position': {
         return rows.sort(function (a, b) {
           var nameA = a.position.toUpperCase();
           var nameB = b.position.toUpperCase(); // ignore upper and lowercase
@@ -46,7 +46,7 @@ export class tableoperations {
           return 0;
         });
       }
-      case 3: {
+      case 'office': {
         return rows.sort(function (a, b) {
           var nameA = a.office.toUpperCase();
           var nameB = b.office.toUpperCase(); // ignore upper and lowercase
@@ -59,14 +59,14 @@ export class tableoperations {
           return 0;
         });
       }
-      case 4: {
+      case 'age': {
         return rows.sort(function (a, b) {
           Number(a.age);
           Number(b.age);
           return a.age - b.age;
         });
       }
-      case 5: {
+      case 'start_date': {
         return rows.sort(function (a, b) {
           const startdateA = new Date(a.start_date);
           const startdateB = new Date(b.start_date);
@@ -79,7 +79,7 @@ export class tableoperations {
           return 0;
         });
       }
-      case 6: {
+      case 'salary': {
         rows.sort(function (a, b) {
           var nameA = a.salary.toUpperCase();
           var nameB = b.salary.toUpperCase(); // ignore upper and lowercase
@@ -93,7 +93,7 @@ export class tableoperations {
         });
       }
       default:
-        console.log(item.columId);
+        console.log(item.key);
     }
     return rows;
   }
