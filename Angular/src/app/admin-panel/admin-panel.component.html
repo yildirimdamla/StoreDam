@@ -1,3 +1,19 @@
+<app-burger-nav></app-burger-nav>
+<nav class="navbar navbar-light custom-navbar">
+  <div class="container">
+    <a class="navbar-brand">.damla</a>
+
+    <a
+      href="#"
+      class="burger"
+      data-toggle="collapse"
+      data-target="#main-navbar"
+    >
+      <span></span>
+    </a>
+  </div>
+</nav>
+
 <div class="container">
   <table class="table table-hover">
     <thead>
@@ -7,7 +23,7 @@
           (click)="sortbycolumn(column_name)"
           *ngFor="let column_name of columnlist"
         >
-          <button>{{ column_name.value }}</button>
+          <span>{{ column_name.value }}</span>
         </th>
       </tr>
     </thead>
