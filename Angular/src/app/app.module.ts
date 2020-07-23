@@ -17,6 +17,7 @@ import { ClientSectionComponent } from './home/client-section/client-section.com
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AdminBurgerComponent } from './admin-panel/admin-burger/admin-burger.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
+    AdminBurgerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
