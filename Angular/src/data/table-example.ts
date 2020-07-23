@@ -10,18 +10,18 @@ export class table_schema {
 
 export const columnlist = [
   // { columId:0, key: '_id', value: 'Id' },
-  { key: 'name', value: 'Name & Surname' },
-  { key: 'position', value: 'Position' },
-  { key: 'office', value: 'Office' },
-  { key: 'age', value: 'Age' },
-  { key: 'start_date', value: 'Start Date' },
-  { key: 'salary', value: 'Salary' },
+  { sortAscending: true, key: 'name', value: 'Name & Surname' },
+  { sortAscending: true, key: 'position', value: 'Position' },
+  { sortAscending: true, key: 'office', value: 'Office' },
+  { sortAscending: true, key: 'age', value: 'Age' },
+  { sortAscending: true, key: 'start_date', value: 'Start Date' },
+  { sortAscending: true, key: 'salary', value: 'Salary' },
 ];
 export class tableoperations {
   static sortbyString(item: any, rows) {
     switch (item.key) {
       case 'name': {
-        return rows.sort(function (a, b) {
+        rows.sort(function (a, b) {
           var nameA = a.name.toUpperCase();
           var nameB = b.name.toUpperCase(); // ignore upper and lowercase
           if (nameA < nameB) {
@@ -32,9 +32,16 @@ export class tableoperations {
           }
           return 0;
         });
+        if (item.sortAscending == false) {
+          rows.reverse();
+          item.sortAscending = true;
+        } else {
+          item.sortAscending = false;
+        }
+        return rows;
       }
       case 'position': {
-        return rows.sort(function (a, b) {
+        rows.sort(function (a, b) {
           var nameA = a.position.toUpperCase();
           var nameB = b.position.toUpperCase(); // ignore upper and lowercase
           if (nameA < nameB) {
@@ -45,9 +52,16 @@ export class tableoperations {
           }
           return 0;
         });
+        if (item.sortAscending == false) {
+          rows.reverse();
+          item.sortAscending = true;
+        } else {
+          item.sortAscending = false;
+        }
+        return rows;
       }
       case 'office': {
-        return rows.sort(function (a, b) {
+        rows.sort(function (a, b) {
           var nameA = a.office.toUpperCase();
           var nameB = b.office.toUpperCase(); // ignore upper and lowercase
           if (nameA < nameB) {
@@ -58,16 +72,30 @@ export class tableoperations {
           }
           return 0;
         });
+        if (item.sortAscending == false) {
+          rows.reverse();
+          item.sortAscending = true;
+        } else {
+          item.sortAscending = false;
+        }
+        return rows;
       }
       case 'age': {
-        return rows.sort(function (a, b) {
+        rows.sort(function (a, b) {
           Number(a.age);
           Number(b.age);
           return a.age - b.age;
         });
+        if (item.sortAscending == false) {
+          rows.reverse();
+          item.sortAscending = true;
+        } else {
+          item.sortAscending = false;
+        }
+        return rows;
       }
       case 'start_date': {
-        return rows.sort(function (a, b) {
+        rows.sort(function (a, b) {
           const startdateA = new Date(a.start_date);
           const startdateB = new Date(b.start_date);
           if (startdateA < startdateB) {
@@ -78,6 +106,13 @@ export class tableoperations {
           }
           return 0;
         });
+        if (item.sortAscending == false) {
+          rows.reverse();
+          item.sortAscending = true;
+        } else {
+          item.sortAscending = false;
+        }
+        return rows;
       }
       case 'salary': {
         rows.sort(function (a, b) {
@@ -91,10 +126,18 @@ export class tableoperations {
           }
           return 0;
         });
+        if (item.sortAscending == false) {
+          rows.reverse();
+          item.sortAscending = true;
+        } else {
+          item.sortAscending = false;
+        }
+        return rows;
       }
       default:
         console.log(item.key);
     }
+
     return rows;
   }
 }
